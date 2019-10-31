@@ -355,6 +355,16 @@ export default function tableDragger(table, userOptions) {
       animation: 300,
       staticClass: classes.static,
       direction: mode === columnType ? 'horizontal' : 'vertical',
+      accepts: function (el, target, source, sibling) {
+        if(sibling !== null) {
+                var opt =options.fixedColumns;
+                  var index = Array.prototype.indexOf.call(sibling.parentNode.children, sibling);
+                  if (opt.includes(index)) {
+                    return false;
+                  }
+                }
+        return true;
+      }
     })
       .on('drag', () => {
         return onDrag(dragger, table, mode)
