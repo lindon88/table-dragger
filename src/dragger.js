@@ -356,13 +356,13 @@ export default function tableDragger(table, userOptions) {
       staticClass: classes.static,
       direction: mode === columnType ? 'horizontal' : 'vertical',
       accepts: function (el, target, source, sibling) {
-        if(sibling !== null) {
-                var opt =options.fixedColumns;
-                  var index = Array.prototype.indexOf.call(sibling.parentNode.children, sibling);
-                  if (opt.includes(index)) {
-                    return false;
-                  }
-                }
+        if (sibling !== null && typeof options.fixedColumns !== 'undefined' && options.fixedColumns !== null) {
+          var opt = options.fixedColumns;
+          var index = Array.prototype.indexOf.call(sibling.parentNode.children, sibling);
+          if (opt.includes(index)) {
+            return false;
+          }
+        }
         return true;
       }
     })
