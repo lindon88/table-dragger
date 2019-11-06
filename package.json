@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "Drag and sort columns and rows of table",
   "author": "sindu12jun <imgonnalovetheworld@gmail.com>",
-  "main": "dist/table-dragger.js",
+  "main": "dist/table-dragger.min.js",
   "repository": {
     "type": "git",
     "url": "sindu12jun/SortableTable"
