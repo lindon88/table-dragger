@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="description" content="table-dragger, drag and sort rows or columns of table"><meta name="author" content="sindu12jun"><title>sindu12jun-TableDragger</title><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.10.0-12/css/all.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism-tomorrow.min.css"><style>.btn {
+      border: 2px solid;
+    }
+
+    footer a,
+    footer a:hover,
+    .jumbotron a,
+    .jumbotron a:hover {
+      color: #cc99cd;
+    }
+
+    footer, .jumbotron {
+      margin-bottom: 0;
+      background: #2d2d2d;
+      color: #67cdcc;
+    }
+
+    footer {
+      margin-top: 1em;
+      padding: 1em 0;
+      color: #ccc;
+    }
+
+    .handle {
+      /*font-family: 'Glyphicons Halflings';*/
+      /*color: #dd5;*/
+    }
+
+    .handle:hover {
+    }
+
+    .handle:before {
+      font-size: 10px;
+    }
+
+    .sortable-ghost {
+      background: #efefef;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    table {
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    .sindu-table {
+      background: #34495E;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .sindu-table th {
+      padding: 16px;
+      color: #dd5;
+    }
+
+    .sindu-table td {
+      padding: 16px;
+    }</style></head><body><div class="jumbotron"><div class="container"><div class="row"><div class="col-md-6 col-md-offset-2"><a href="https://github.com/sindu12jun/table-dragger"><h1>table-dragger</h1></a><p class="lead">Easily add drag-and-drop sorting to your table without jQuery <a href="https://github.com/sindu12jun/table-dragger" class="btn btn-lg">View on GitHub</a></p></div></div></div></div><div id="main-container" class="container"><div class="row"><div class="col-md-8 col-md-offset-2"><h2 class="page-header">Usage <span class="small">cells that can be lifted up were marked with this lovely icon <i class="far fa-hand-paper"></i></span></h2><section><h4>Free <span class="small">After mousedown, move mouse horizontally or vertically, see what happens. Don't forget to specify drag handler</span></h4><table id="free-table" class="sindu-table"><thead><tr><th class="c1 r1 handle">Movie Title</th><th class="c2 r1 handle cellInThead">Genre</th><th class="c3 r1 handle">Year</th><th class="c4 r1 handle">Gross</th></tr></thead><tr><td class="c1 r2 handle">Star Wars</td><td class="c2 r2">Adventure, Sci-fi</td><td class="c3 r2">1977</td><td class="c4 r2">$460,935,665</td></tr><tr><td class="c1 r3 handle">American Graffiti</td><td class="c2 r3">Comedy, Drama</td><td class="c3 r3">1973</td><td class="c4 r3">$115,000,000</td></tr><tr><td class="c1 r4 handle">Howard The Duck</td><td class="c2 r4">"Comedy"</td><td class="c3 r4">1986</td><td class="c4 r4">$321,391,432</td></tr><tfoot><tr><td class="c1 r5 handle">300</td><td class="c2 r5">100</td><td class="c3 r5">200</td><td class="c4 r5">50</td></tr></tfoot></table><pre>
+          <code class="language-javascript">
+tableDragger(document.querySelector(&#x22#row-table&#x22), { mode: &#x22row&#x22, onlyBody: true, dragHandler: &#x22.handle&#x22 });
+        </code>
+        </pre></section><section><h4>Sort Rows <span class="small">Sort rows, handler was the first column</span></h4><table id="row-table" class="sindu-table"><thead><tr><th class="c1 r1">Movie Title</th><th class="c2 r1 cellInThead">Genre</th><th class="c3 r1">Year</th><th class="c4 r1">Gross</th></tr></thead><tr><td class="c1 r2">Star Wars</td><td class="c2 r2">Adventure, Sci-fi</td><td class="c3 r2">1977</td><td class="c4 r2">$460,935,665</td></tr><tr><td class="c1 r3">American Graffiti</td><td class="c2 r3">Comedy, Drama</td><td class="c3 r3">1973</td><td class="c4 r3">$115,000,000</td></tr><tr><td class="c1 r4">Howard The Duck</td><td class="c2 r4">"Comedy"</td><td class="c3 r4">1986</td><td class="c4 r4">$321,391,432</td></tr><tfoot><td class="c1 r5">300</td><td class="c2 r5">100</td><td class="c3 r5">200</td><td class="c4 r5">50</td></tfoot></table><pre>
+          <code class="language-javascript">
+tableDragger(document.querySelector(&#x22#row-table&#x22), { mode: &#x22row&#x22 });
+        </code>
+        </pre></section><section><h4>Sort Columns <span class="small">With no options, sort columns, handler was the first row</span></h4><table id="column-table" class="sindu-table"><thead><tr><th class="c1 r1">Movie Title</th><th class="c2 r1 cellInThead">Genre</th><th class="c3 r1">Year</th><th class="c4 r1">Gross</th></tr></thead><tr><td class="c1 r2">Star Wars</td><td class="c2 r2">Adventure, Sci-fi</td><td class="c3 r2">1977</td><td class="c4 r2">$460,935,665</td></tr><tr><td class="c1 r3">American Graffiti</td><td class="c2 r3">Comedy, Drama</td><td class="c3 r3">1973</td><td class="c4 r3">$115,000,000</td></tr><tfoot><tr><td class="c1 r4">Howard The Duck</td><td class="c2 r4">"Comedy"</td><td class="c3 r4">1986</td><td class="c4 r4">$321,391,432</td></tr><tr><td class="c1 r5">300</td><td class="c2 r5">100</td><td class="c3 r5">200</td><td class="c4 r5">50</td></tr></tfoot></table><pre>
+          <code class="language-javascript">
+tableDragger(document.querySelector(&#x22#default-table&#x22));
+        </code>
+        </pre></section><section><h4>Handler <span class="small">Specify drag handler wherever within the table</span></h4><table id="handle-table" class="sindu-table"><thead><tr><th class="c1 r1">Movie Title</th><th class="c2 r1 handle cellInThead">Genre</th><th class="c3 r1">Year</th><th class="c4 r1">Gross</th></tr></thead><tr><td class="c1 r2 handle">Star Wars</td><td class="c2 r2">Adventure, Sci-fi</td><td class="c3 r2">1977</td><td class="c4 r2">$460,935,665</td></tr><tr><td class="c1 r3">American Graffiti</td><td class="c2 r3 handle">Comedy, Drama</td><td class="c3 r3">1973</td><td class="c4 r3">$115,000,000</td></tr><tr><td class="c1 r4">Howard The Duck</td><td class="c2 r4">"Comedy"</td><td class="c3 r4">1986</td><td class="c4 r4">$321,391,432</td></tr><tfoot><td class="c1 r5">300</td><td class="c2 r5">100</td><td class="c3 r5">200</td><td class="c4 r5">50</td></tfoot></table><pre>
+          <code class="language-javascript">
+tableDragger(document.querySelector(&#x22#row-table&#x22), { dragHandler: &#x22.handle&#x22 });
+        </code>
+        </pre></section><section><h4>Only Body <span class="small">Setting onlyBody to true in row mode, user can only lift rows in tBody</span></h4><table id="only-body-table" class="sindu-table"><thead><tr><th class="c1 r1">Movie Title</th><th class="c2 r1 cellInThead">Genre</th><th class="c3 r1">Year</th><th class="c4 r1">Gross</th></tr></thead><tr><td class="c1 r2">Star Wars</td><td class="c2 r2">Adventure, Sci-fi</td><td class="c3 r2">1977</td><td class="c4 r2">$460,935,665</td></tr><tr><td class="c1 r3">American Graffiti</td><td class="c2 r3">Comedy, Drama</td><td class="c3 r3">1973</td><td class="c4 r3">$115,000,000</td></tr><tr><td class="c1 r4">Howard The Duck</td><td class="c2 r4">"Comedy"</td><td class="c3 r4">1986</td><td class="c4 r4">$321,391,432</td></tr><tfoot><td class="c1 r5">300</td><td class="c2 r5">100</td><td class="c3 r5">200</td><td class="c4 r5">50</td></tfoot></table><pre>
+          <code class="language-javascript">
+tableDragger(document.querySelector(&#x22#row-table&#x22), { mode: &#x22row&#x22, onlyBody: true });
+        </code>
+        </pre></section><section><h4>Event <span class="small">Add callback when event trigger, open devtool see what happens</span></h4><table id="event-table" class="sindu-table"><thead><tr><th class="c1 r1 handle">Movie Title</th><th class="c2 r1 cellInThead handle">Genre</th><th class="c3 r1 handle">Year</th><th class="c4 r1 handle">Gross</th></tr></thead><tr><td class="c1 r2 handle">Star Wars</td><td class="c2 r2">Adventure, Sci-fi</td><td class="c3 r2">1977</td><td class="c4 r2">$460,935,665</td></tr><tr><td class="c1 r3 handle">American Graffiti</td><td class="c2 r3">Comedy, Drama</td><td class="c3 r3">1973</td><td class="c4 r3">$115,000,000</td></tr><tr><td class="c1 r4 handle">Howard The Duck</td><td class="c2 r4">"Comedy"</td><td class="c3 r4">1986</td><td class="c4 r4">$321,391,432</td></tr><tfoot><td class="c1 r5 handle">300</td><td class="c2 r5">100</td><td class="c3 r5">200</td><td class="c4 r5">50</td></tfoot></table><pre>
+          <code class="language-javascript">
+tableDragger(document.querySelector('#event-table'), { mode: 'free', dragHandler: '.handle', onlyBody: true })
+  .on('drag', () => {
+    console.log('drag');
+  })
+  .on('drop', (from, to, el, mode) => {
+    console.log(`drop ${el.nodeName} from ${from} ${mode} to ${to} ${mode}`);
+  })
+  .on('shadowMove', (from, to, el, mode) => {
+    console.log(`move ${el.nodeName} from ${from} ${mode} to ${to} ${mode}`);
+  })
+  .on('out', (el, mode) => {
+    console.log(`move out or drop ${el.nodeName} in mode ${mode}`);
+  });
+        </code>
+        </pre></section></div></div></div><footer><div class="container text-center"><small>Free to Use Under The MIT License (MIT) | Created by <a href="https://github.com/sindu12jun">@sindu12jun</a></small></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/prism.min.js"></script><script src="table-dragger.js"></script></body></html>
