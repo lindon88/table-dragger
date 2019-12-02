@@ -359,7 +359,7 @@ export default function tableDragger(table, userOptions) {
         if (sibling !== null && typeof options.fixedColumns !== 'undefined' && options.fixedColumns !== null) {
           var opt = options.fixedColumns;
           var index = Array.prototype.indexOf.call(sibling.parentNode.children, sibling);
-          if (opt.includes(index)) {
+          if (opt.includes(index) || index > options.lastColumn) {
             return false;
           }
         }
